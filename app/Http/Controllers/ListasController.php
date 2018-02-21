@@ -29,6 +29,10 @@ class ListasController extends Controller
 
     public function store(Request $request) {
 
+    	$this->validate(request(), [
+    		'name' => 'required'
+    	]);
+
     	Lista::create(request(['name']));
 
     	return redirect('/');
