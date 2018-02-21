@@ -11,9 +11,13 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'ListasController@index');
+
+Route::get('/lists', 'ListasController@index');
+Route::get('/lists/create', 'ListasController@create');
+Route::post('/lists', 'ListasController@store');
+Route::get('/lists/{lista}', 'ListasController@show');
+
 
 Route::get('/todos', 'TodosController@index');
 Route::get('/todos/{todo}', 'TodosController@show');
